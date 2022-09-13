@@ -1,4 +1,4 @@
-node('master')
+node('built-in')
 {
     stage('checkout_master') {
         git  "https://github.com/flappa83/Netrox-WebApp.git"
