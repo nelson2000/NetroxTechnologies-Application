@@ -101,9 +101,9 @@
 	                    }
                 	}
 	    
-	    	post('Slack Notification'){
+	    	stage('Slack Notification'){
 	    
-	                success{
+	                steps{
 	                        sh 'Slack Notification is activated'
 				slackSend channel: 'netrox-application-pipeline', color: 'good', message: 'Build was successful: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)', teamDomain: 'devopsteam-2ka9704', tokenCredentialId: 'slack-cred'
 				
