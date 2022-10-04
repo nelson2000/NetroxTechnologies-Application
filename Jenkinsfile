@@ -85,7 +85,7 @@ pipeline{
 	                    }
                 	}
 
-            stage('DeployToProdServer2'){
+            stage('DeployToProdServer3'){
 	    
 	                steps{
 	                        sh 'echo This is another artifact storage'
