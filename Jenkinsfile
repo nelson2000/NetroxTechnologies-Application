@@ -59,7 +59,7 @@
 
 	                } 
 
-            stage('ApprovalToDeploy'){
+            	stage('ApprovalToDeploy'){
 
 		            steps{
                             sh "echo Approval required"
@@ -86,7 +86,7 @@
 	                    }
                 	}
 
-            stage('DeployToProdServer2'){
+            	stage('DeployToProdServer3'){
 	    
 	                steps{
 	                        sh 'echo This is another artifact storage'
