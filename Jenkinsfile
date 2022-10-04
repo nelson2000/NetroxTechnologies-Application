@@ -75,17 +75,16 @@
 
 		            steps{
 		                    sh 'echo This is the deployment stage'
+				    deploy adapters: [tomcat9(credentialsId: 'tomcat1', path: '', url: 'http://192.168.56.17:8080/')], contextPath: null, war: '**/*.war'
 				    
-                           deploy adapters: [tomcat9(credentialsId: 'tomcat-cred', path: '', url: 'http://192.168.56.17:8080/')], contextPath: null, war: 'target/*.war'
-		                }
-
 	                } 
 	
 	        stage('DeployToProdServer2'){
 	    
 	                steps{
 	                        sh 'echo This is another artifact storage'
-				deploy adapters: [tomcat9(credentialsId: 'tomcat-cred', path: '', url: 'http://192.168.56.17:8080/')], contextPath: null, war: 'target/*.war'
+				
+				deploy adapters: [tomcat9(credentialsId: 'tomcat1', path: '', url: 'http://192.168.56.17:8080/')], contextPath: null, war: '**/*.war'
 
 	                    }
                 	}
@@ -94,7 +93,8 @@
 	    
 	                steps{
 	                        sh 'echo This is another artifact storage'
-				deploy adapters: [tomcat9(credentialsId: 'tomcat-cred', path: '', url: 'http://192.168.56.12:8080//')], contextPath: null, war: 'target/*.war'
+				
+				deploy adapters: [tomcat9(credentialsId: 'tomcat1', path: '', url: ' http://192.168.56.12:8080/')], contextPath: null, war: '**/*.war'
 
 	                    }
                 	}
