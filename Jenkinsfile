@@ -100,7 +100,18 @@
 
 	                    }
                 	}
+	    
+	    	stage('Slack Notification'){
+	    
+	                steps{
+	                        sh 'Slack Notification is activated'
+				  slackSend channel: 'netrox-application-pipeline', teamDomain: 'devopsteam-2ka9704', tokenCredentialId: 'slack-cred'
+				
 
+	                    }
+                	}
+
+	  
         
     	}
 
