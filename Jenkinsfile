@@ -46,7 +46,7 @@
 
 		            steps{
                             sh 'echo This is the Code Quality stage'
-                             //sh 'mvn sonar:sonar'            
+                             sh 'mvn sonar:sonar'            
 		                }
 
 	                } 
@@ -55,7 +55,7 @@
 
 		            steps{
                             sh 'echo This is the artifact backup stage'
-                      	    //sh 'mvn deploy'
+                      	    sh 'mvn deploy'
 
 		                }
 
