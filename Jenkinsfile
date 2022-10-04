@@ -6,7 +6,7 @@ pipeline{
     tools {
             maven 'maven38'
         }
-    stages{ 
+    stages { 
 
             stage('Initilization'){
 
