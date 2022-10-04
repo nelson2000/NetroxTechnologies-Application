@@ -101,6 +101,18 @@
 	                    }
                 	}
 	    
+	    	stage('EnvironmentalV'){
+	    
+	               steps{
+			       sh 'echo print environmental variables'
+	                        sh 'env | sort'
+				
+				//deploy adapters: [tomcat9(credentialsId: 'tomcat1', path: '', url: 'http://192.168.56.12:8080/')], contextPath: null, war: '**/target/*.war'
+
+	                    }
+                	}
+	    
+	    
 	    	
         
    		}
