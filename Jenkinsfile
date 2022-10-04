@@ -78,6 +78,8 @@
 				    deploy adapters: [tomcat9(credentialsId: 'tomcat1', path: '', url: 'http://192.168.56.17:8080/')], contextPath: null, war: '**/*.war'
 				    
 	                } 
+
+			}
 	
 	        stage('DeployToProdServer2'){
 	    
@@ -100,7 +102,6 @@
                 	}
 
         
-    }
+    	}
 
-}
-    }
+	}
