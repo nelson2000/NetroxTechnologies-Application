@@ -28,7 +28,7 @@ pipeline{
 
 		            steps{
                         sh 'echo This is the Code build stage'
-                        sh 'mvn package'
+                        sh 'mvn clean install'
 		            }
 	            } 
 
