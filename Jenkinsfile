@@ -30,7 +30,7 @@
 
 		            steps{
                         sh 'echo This is the Code build stage'
-                        sh 'mvn package'
+                        sh 'mvn clean install'
 		            }
 	            } 
 
@@ -101,16 +101,15 @@
 	                    }
                 	}
 	    
-	    	stage('Slack Notification'){
+	    	post('Slack Notification'){
 	    
-	                steps{
+	                success{
 	                        sh 'Slack Notification is activated'
-				  slackSend channel: 'netrox-application-pipeline', teamDomain: 'devopsteam-2ka9704', tokenCredentialId: 'slack-cred'
+				slackSend "Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)
 				
-
 	                    }
                 	}
-
+	    
 	  
         
     	}
