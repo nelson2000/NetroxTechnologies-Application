@@ -96,14 +96,14 @@
 	<distributionManagement>
 	    <repository>
 	      <id>nexus</id>
-	      <name>ACADA Learning Releases Nexus Repository</name>
-	      <url>http://54.202.117.135:8081/repository/Netrox-WebApp-release/</url>
+	      <name>netrox app Releases Nexus Repository</name>
+	      <url> http://192.168.56.21:8081/repository/netrox-app-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>ACADA Learning Snapshot Nexus Repository </name>
-	      <url>http://54.202.117.135:8081/repository/Netrox-WebApp-snapshot/</url>
+	      <url>http://192.168.56.21:8081/repository/netrox-app-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
