@@ -46,7 +46,7 @@
 
 		            steps{
                             sh 'echo This is the Code Quality stage'
-                                         
+                             sh 'mvn sonar:sonar'            
 		                }
 
 	                } 
@@ -55,7 +55,7 @@
 
 		            steps{
                             sh 'echo This is the artifact backup stage'
-                      
+                      	    sh 'mvn deploy'
 
 		                }
 
@@ -75,7 +75,8 @@
 
 		            steps{
 		                    sh 'echo This is the deployment stage'
-                           
+				    
+                           deploy adapters: [tomcat9(credentialsId: 'tomcat-cred', path: '', url: 'http://192.168.56.17:8080/')], contextPath: null, war: 'target/*.war'
 		                }
 
 	                } 
@@ -84,6 +85,7 @@
 	    
 	                steps{
 	                        sh 'echo This is another artifact storage'
+				deploy adapters: [tomcat9(credentialsId: 'tomcat-cred', path: '', url: 'http://192.168.56.17:8080/')], contextPath: null, war: 'target/*.war'
 
 	                    }
                 	}
@@ -92,6 +94,7 @@
 	    
 	                steps{
 	                        sh 'echo This is another artifact storage'
+				deploy adapters: [tomcat9(credentialsId: 'tomcat-cred', path: '', url: 'http://192.168.56.12:8080//')], contextPath: null, war: 'target/*.war'
 
 	                    }
                 	}
