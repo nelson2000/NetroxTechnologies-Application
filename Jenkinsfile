@@ -86,7 +86,7 @@
 	                steps{
 	                        sh 'echo This is another artifact storage'
 				
-				deploy adapters: [tomcat9(credentialsId: 'tomcat1', path: '', url: 'http://192.168.56.17:8080/')], contextPath: null, war: '**/target/*.war'
+				deploy adapters: [tomcat9(credentialsId: 'tomcat1', path: '', url: 'http://192.168.56.13:8080/')], contextPath: null, war: '**/target/*.war'
 
 	                    }
                 	}
@@ -96,7 +96,7 @@
 	                steps{
 	                        sh 'echo This is another artifact storage'
 				
-				deploy adapters: [tomcat9(credentialsId: 'tomcat1', path: '', url: ' http://192.168.56.12:8080/')], contextPath: null, war: '**/target/*.war'
+				deploy adapters: [tomcat9(credentialsId: 'tomcat1', path: '', url: 'http://192.168.56.12:8080/')], contextPath: null, war: '**/target/*.war'
 
 	                    }
                 	}
