@@ -1,11 +1,99 @@
-node('built-in')
-{
-    stage('checkout_master') {
-        git  "https://github.com/flappa83/Netrox-WebApp.git"
-    }
 
-    stage('continuous build_master'){
-    sh label: '', script: 'mvn package'
+pipeline{ 
+    
+    agent any 
+    
+    tools {
+            maven 'maven38'
+        }
+    stages{ 
+
+            stage('Initilization'){
+
+		            steps{
+                    sh 'echo This is the NetroxApp Project Dev Environment'
+
+		                }
+	                } 
+	        stage('CodeCheckout'){
+		    
+		            steps{
+                        sh 'echo This is the code checkout stage'
+        
+                        checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'git-cred', url: 'https://github.com/flappa83/Netrox-WebApp.git']]])
+                    }
+	            } 
+
+	        stage('CodeBuild'){
+
+		            steps{
+                        sh 'echo This is the Code build stage'
+                        sh 'mvn package'
+		            }
+	            } 
+
+            stage('CodeTesting'){
+
+		            steps{
+                            sh 'echo This is the Code Testing'
+                        }
+                    } 
+
+	        stage('CodeQuality'){
+
+		            steps{
+                            sh 'echo This is the Code Quality stage'
+                                         
+		                }
+
+	                } 
+
+	        stage('BackupArtifact'){
+
+		            steps{
+                            sh 'echo This is the artifact backup stage'
+                      
+
+		                }
+
+	                } 
+
+            stage('ApprovalToDeploy'){
+
+		            steps{
+                            sh "echo Approval required"
+                            timeout(time:2, unit:'DAYS'){
+                            input message:'Approval for Production'
+		                    }
+                        }
+                    } 
+
+	        stage('DeployToProdServer1'){
+
+		            steps{
+		                    sh 'echo This is the deployment stage'
+                           
+		                }
+
+	                } 
+	
+	        stage('DeployToProdServer2'){
+	    
+	                steps{
+	                        sh 'echo This is another artifact storage'
+
+	                    }
+                	}
+
+            stage('DeployToProdServer2'){
+	    
+	                steps{
+	                        sh 'echo This is another artifact storage'
+
+	                    }
+                	}
+
+        
     }
 
 }
