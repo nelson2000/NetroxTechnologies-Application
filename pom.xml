@@ -90,10 +90,12 @@
 			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
+	
+	</dependencies>
 		
 	
 		
-	distributionManagement>
+	<distributionManagement>
 	    <repository>
 	      <id>nexus</id>
 	      <name>netrox app Releases Nexus Repository</name>
